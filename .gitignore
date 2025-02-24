@@ -5,6 +5,3 @@
 build
 node_modules
 *.tsbuildinfo
-
-# Deno specific
-/app/deno.d.ts

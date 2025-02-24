@@ -6,16 +6,24 @@
     "lint": "deno lint",
     "start": "deno run -A ./server.production.ts",
     "typecheck": {
-      "command": "deno check '**/*' && tsc",
+      "command": "deno check --node-modules-dir=auto '**/*'",
       "dependencies": ["typegen"]
     },
-    "typegen": "deno types > ./app/deno.d.ts && react-router typegen"
+    "typegen": "react-router typegen"
   },
-  "exclude": ["app/", "build/"],
-  "fmt": { "exclude": ["!app/"] },
-  "lint": { "exclude": ["!app/", "app/deno.d.ts"] },
+  "compilerOptions": {
+    "lib": ["deno.window", "dom"],
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "jsxImportSourceTypes": "@types/react",
+    "rootDirs": [".", "./.react-router/types"],
+    "types": ["vite/client"]
+  },
+  "unstable": ["sloppy-imports"],
+  "exclude": ["build/"],
   "nodeModulesDir": "manual",
   "imports": {
+    "~/": "./app/",
     "@std/http": "jsr:@std/http@^1.0.11",
     "@std/path": "jsr:@std/path@^1.0.8"
   }

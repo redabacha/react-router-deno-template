@@ -1,6 +1,6 @@
 # NOTES
 
-This template has been tested with Deno v2.1.0+.
+This template has been tested with Deno v2.2.1+.
 [Live deployment here](https://huge-badger-89.deno.dev/) hosted on
 [Deno Deploy](https://deno.com/deploy).
 
@@ -21,20 +21,6 @@ it's possible to use packages from JSR and imports from HTTPS URLs (via the
 [deno.json `imports` field](https://docs.deno.com/runtime/fundamentals/modules/#managing-third-party-modules-and-libraries))
 within the `app/` directory which will get included in the server and/or browser
 bundles as needed.
-
-## Using the Typescript type checker instead of Deno in `app/`
-
-Currently this template uses the Typescript type checker for files within the
-app directory - only files outside the app directory will be typechecked by
-Deno. This is because of the following open issues which is negatively impacting
-the developer experience of using the Deno type checker for the app directory:
-
-- https://github.com/denoland/deno/issues/26871
-- https://github.com/denoland/deno/issues/26224
-
-As a caveat of using the Typescript type checker, if you are using imports
-defined in your `deno.json` within the app directory, you must declare these
-imports as [seen here](./app/env.d.ts#L10) for example.
 
 # Welcome to React Router!
 
